@@ -1,0 +1,13 @@
+{
+  "name": "ecommerce-material-workbench",
+  "version": "1.0.0",
+  "description": "电商素材工作台 - AI智能生成商品主图和文案",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'Static site - no build needed'",
+    "start": "npx serve ."
+  },
+  "keywords": ["ecommerce", "ai", "material", "generator"],
+  "author": "",
+  "license": "MIT"
+}
