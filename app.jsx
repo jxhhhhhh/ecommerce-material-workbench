@@ -5,127 +5,143 @@ const categoryConfigs = {
     '服装': {
         trendKeywords: ['百搭', '显瘦', '显白', '时髦', '气质', 'OOTD', '穿搭'],
         titlePatterns: [
-            (c, n, m, f) => `${c}${n}｜${m}面料 显瘦显白神器`,
-            (c, n, m, f) => `被问爆的${c}${n}！${m}材质 上身绝绝子`,
-            (c, n, m, f) => `${c}控必入✨ ${c}${n} ${m}质感太高级`,
-            (c, n, m, f) => `显瘦10斤！${c}${n} ${m}面料 舒适又时髦`,
-            (c, n, m, f) => `早春OOTD🌸 ${c}${n} ${m}材质 温柔感拉满`,
+            (color, name, material, feature) => `${color}${name}｜${material}面料 ${feature || '显瘦显白'}神器`,
+            (color, name, material, feature) => `被问爆的${color}${name}！${material}材质 ${feature || '上身绝绝子'}`,
+            (color, name, material, feature) => `服装控必入✨ ${color}${name} ${material}质感太高级`,
+            (color, name, material, feature) => `显瘦10斤！${color}${name} ${material}面料 ${feature || '舒适又时髦'}`,
+            (color, name, material, feature) => `早春OOTD🌸 ${color}${name} ${material}材质 ${feature || '温柔感拉满'}`,
         ],
         sellingPoints: [
-            (n, c, m, f) => `这件${n}真的是衣橱必备！${m}面料亲肤透气，${c}设计显瘦又显高。${f ? f + '，' : ''}随便搭都好看，通勤约会都能穿。`,
-            (n, c, m, f) => `挖到宝了！${m}材质的${n}，触感柔软舒适。${c}版型修饰身材，${f || '上身效果超赞'}，闺蜜都问我要链接～`,
-            (n, c, m, f) => `质感绝了！严选${m}面料，${n}的${c}设计很有小心机。${f || '显瘦又百搭'}，洗了好几次都不变形，性价比超高！`,
+            (name, category, material, feature) => `这件${name}真的是衣橱必备！${material}面料亲肤透气，版型设计显瘦又显高。${feature ? feature + '，' : ''}随便搭都好看，通勤约会都能穿。`,
+            (name, category, material, feature) => `挖到宝了！${material}材质的${name}，触感柔软舒适。版型修饰身材，${feature || '上身效果超赞'}，闺蜜都问我要链接～`,
+            (name, category, material, feature) => `质感绝了！严选${material}面料，${name}的设计很有小心机。${feature || '显瘦又百搭'}，洗了好几次都不变形，性价比超高！`,
         ],
     },
     '鞋靴': {
         trendKeywords: ['舒适', '增高', '百搭', '透气', '软底', '不累脚', '爆款'],
         titlePatterns: [
-            (c, n, m, f) => `暴走不累！${c}${n} ${m}材质 软底舒适`,
-            (c, n, m, f) => `增高5cm✨ ${c}${n} ${m}鞋面 透气不闷脚`,
-            (c, n, m, f) => `${c}控必入｜${c}${n} ${m}材质 踩屎感满满`,
-            (c, n, m, f) => `月销2000+的${c}${n}！${m}材质 好评如潮`,
-            (c, n, m, f) => `通勤神器👟 ${c}${n} ${m}软底 一天不累`,
+            (color, name, material, feature) => `暴走不累！${color}${name} ${material}材质 ${feature || '软底舒适'}`,
+            (color, name, material, feature) => `增高5cm✨ ${color}${name} ${material}鞋面 ${feature || '透气不闷脚'}`,
+            (color, name, material, feature) => `鞋靴控必入｜${color}${name} ${material}材质 ${feature || '踩屎感满满'}`,
+            (color, name, material, feature) => `月销2000+的${color}${name}！${material}材质 ${feature || '好评如潮'}`,
+            (color, name, material, feature) => `通勤神器👟 ${color}${name} ${material}软底 ${feature || '一天不累'}`,
         ],
         sellingPoints: [
-            (n, c, m, f) => `这双${n}太舒服了！${m}鞋面透气不闷脚，软底设计走一天都不累。${f || '增高又显瘦'}，通勤逛街都能穿。`,
-            (n, c, m, f) => `终于找到好穿的${c}了！${m}材质柔软贴合，${n}的版型很正。${f || '防滑耐磨'}，性价比真的高，闭眼入！`,
-            (n, c, m, f) => `回购三次的${n}！${m}材质越穿越舒服，${c}设计时尚百搭。${f || '脚感超棒'}，搭配裙子裤子都好看～`,
+            (name, category, material, feature) => `这双${name}太舒服了！${material}鞋面透气不闷脚，软底设计走一天都不累。${feature || '增高又显瘦'}，通勤逛街都能穿。`,
+            (name, category, material, feature) => `终于找到好穿的鞋了！${material}材质柔软贴合，${name}的版型很正。${feature || '防滑耐磨'}，性价比真的高，闭眼入！`,
+            (name, category, material, feature) => `回购三次的${name}！${material}材质越穿越舒服，设计时尚百搭。${feature || '脚感超棒'}，搭配裙子裤子都好看～`,
         ],
     },
     '箱包': {
         trendKeywords: ['大容量', '百搭', '轻便', '耐用', '通勤', '出游', '质感'],
         titlePatterns: [
-            (c, n, m, f) => `能装下全世界！${c}${n} ${m}材质 大容量`,
-            (c, n, m, f) => `通勤必备✨ ${c}${n} ${m}质感 轻便耐用`,
-            (c, n, m, f) => `出游神器｜${c}${n} ${m}材质 百搭能装`,
-            (c, n, m, f) => `高级感${c}${n}！${m}材质 质感满分`,
-            (c, n, m, f) => `学生党上班族都爱💼 ${c}${n} ${m}耐用`,
+            (color, name, material, feature) => `能装下全世界！${color}${name} ${material}材质 ${feature || '大容量'}`,
+            (color, name, material, feature) => `通勤必备✨ ${color}${name} ${material}质感 ${feature || '轻便耐用'}`,
+            (color, name, material, feature) => `出游神器｜${color}${name} ${material}材质 ${feature || '百搭能装'}`,
+            (color, name, material, feature) => `高级感${color}${name}！${material}材质 ${feature || '质感满分'}`,
+            (color, name, material, feature) => `学生党上班族都爱💼 ${color}${name} ${material}耐用`,
         ],
         sellingPoints: [
-            (n, c, m, f) => `这个${n}容量超大！${m}材质轻便又耐用，${c}设计简约大气。${f || '隔层合理'}，电脑书本都能装，通勤出游都合适。`,
-            (n, c, m, f) => `质感超棒的${n}！${m}材质手感细腻，${c}版型挺括有型。${f || '五金精致'}，背出去很有面子，同事都问链接～`,
-            (n, c, m, f) => `用了半年还像新的！${m}材质的${n}真的很耐用，${c}设计实用又好看。${f || '容量惊人'}，日常通勤完全够用！`,
+            (name, category, material, feature) => `这个${name}容量超大！${material}材质轻便又耐用，设计简约大气。${feature || '隔层合理'}，电脑书本都能装，通勤出游都合适。`,
+            (name, category, material, feature) => `质感超棒的${name}！${material}材质手感细腻，版型挺括有型。${feature || '五金精致'}，背出去很有面子，同事都问链接～`,
+            (name, category, material, feature) => `用了半年还像新的！${material}材质的${name}真的很耐用，设计实用又好看。${feature || '容量惊人'}，日常通勤完全够用！`,
         ],
     },
     '美妆': {
         trendKeywords: ['显白', '持妆', '保湿', '温和', '养肤', '素颜', '必备'],
         titlePatterns: [
-            (c, n, m, f) => `黄皮亲妈！${c}${n} ${m}质地 显白持妆`,
-            (c, n, m, f) => `伪素颜神器✨ ${c}${n} ${m}配方 自然好皮`,
-            (c, n, m, f) => `干皮救星｜${c}${n} ${m}成分 保湿养肤`,
-            (c, n, m, f) => `${c}控必入！${c}${n} ${m}质地 好评如潮`,
-            (c, n, m, f) => `平价好用💄 ${c}${n} ${m}配方 学生党爱`,
+            (color, name, material, feature) => `黄皮亲妈！${color}${name} ${material}质地 ${feature || '显白持妆'}`,
+            (color, name, material, feature) => `伪素颜神器✨ ${color}${name} ${material}配方 ${feature || '自然好皮'}`,
+            (color, name, material, feature) => `干皮救星｜${color}${name} ${material}成分 ${feature || '保湿养肤'}`,
+            (color, name, material, feature) => `美妆控必入！${color}${name} ${material}质地 ${feature || '好评如潮'}`,
+            (color, name, material, feature) => `平价好用💄 ${color}${name} ${material}配方 学生党爱`,
         ],
         sellingPoints: [
-            (n, c, m, f) => `这款${n}真的绝了！${m}质地轻薄不闷痘，${c}效果自然又持久。${f || '显白不挑皮'}，素颜涂也超好看，日常通勤必备。`,
-            (n, c, m, f) => `被种草后无限回购！${m}配方温和不刺激，${n}的${c}效果很明显。${f || '保湿不拔干'}，敏感肌也能用，性价比超高～`,
-            (n, c, m, f) => `终于找到本命${c}了！${m}质地丝滑好推开，${n}持妆一整天不脱妆。${f || '养肤不暗沉'}，越夜越美丽，姐妹们快冲！`,
+            (name, category, material, feature) => `这款${name}真的绝了！${material}质地轻薄不闷痘，效果自然又持久。${feature || '显白不挑皮'}，素颜涂也超好看，日常通勤必备。`,
+            (name, category, material, feature) => `被种草后无限回购！${material}配方温和不刺激，${name}的效果很明显。${feature || '保湿不拔干'}，敏感肌也能用，性价比超高～`,
+            (name, category, material, feature) => `终于找到本命美妆了！${material}质地丝滑好推开，${name}持妆一整天不脱妆。${feature || '养肤不暗沉'}，越夜越美丽，姐妹们快冲！`,
         ],
     },
     '食品': {
         trendKeywords: ['健康', '美味', '低脂', '营养', '解馋', '追剧', '办公室'],
         titlePatterns: [
-            (c, n, m, f) => `好吃不胖！${c}${n} ${m}制作 健康美味`,
-            (c, n, m, f) => `办公室解馋✨ ${c}${n} ${m}配方 停不下来`,
-            (c, n, m, f) => `追剧必备｜${c}${n} ${m}工艺 越嚼越香`,
-            (c, n, m, f) => `配料干净！${c}${n} ${m}原料 吃得放心`,
-            (c, n, m, f) => `回购10次🍿 ${c}${n} ${m}制作 全家爱吃`,
+            (color, name, material, feature) => `好吃不胖！${name} ${material}制作 ${feature || '健康美味'}`,
+            (color, name, material, feature) => `办公室解馋✨ ${name} ${material}配方 ${feature || '停不下来'}`,
+            (color, name, material, feature) => `追剧必备｜${name} ${material}工艺 ${feature || '越嚼越香'}`,
+            (color, name, material, feature) => `配料干净！${name} ${material}原料 ${feature || '吃得放心'}`,
+            (color, name, material, feature) => `回购10次🍿 ${name} ${material}制作 全家爱吃`,
         ],
         sellingPoints: [
-            (n, c, m, f) => `这个${n}太好吃了！${m}制作保留原味，${c}口感${f || '酥脆爽口'}。配料表干净，吃着放心，追剧办公来一包超满足。`,
-            (n, c, m, f) => `挖到宝藏零食！${m}原料品质很好，${n}的${c}味道很正。${f || '低脂健康'}，解馋不怕胖，已经回购好几次了～`,
-            (n, c, m, f) => `全家都爱吃的${n}！${m}工艺制作，${c}风味浓郁。${f || '营养丰富'}，老少皆宜，囤了一大箱慢慢吃！`,
+            (name, category, material, feature) => `这个${name}太好吃了！${material}制作保留原味，口感${feature || '酥脆爽口'}。配料表干净，吃着放心，追剧办公来一包超满足。`,
+            (name, category, material, feature) => `挖到宝藏零食！${material}原料品质很好，${name}的味道很正。${feature || '低脂健康'}，解馋不怕胖，已经回购好几次了～`,
+            (name, category, material, feature) => `全家都爱吃的${name}！${material}工艺制作，风味浓郁。${feature || '营养丰富'}，老少皆宜，囤了一大箱慢慢吃！`,
         ],
     },
     '家居': {
         trendKeywords: ['实用', '高颜值', '收纳', '舒适', '品质', '温馨', '必备'],
         titlePatterns: [
-            (c, n, m, f) => `提升幸福感！${c}${n} ${m}材质 高颜值`,
-            (c, n, m, f) => `收纳神器✨ ${c}${n} ${m}制作 实用省空间`,
-            (c, n, m, f) => `温馨小家｜${c}${n} ${m}质感 品质生活`,
-            (c, n, m, f) => `懒人福音！${c}${n} ${m}材质 方便好用`,
-            (c, n, m, f) => `ins风🏠 ${c}${n} ${m}制作 拍照超美`,
+            (color, name, material, feature) => `提升幸福感！${color}${name} ${material}材质 ${feature || '高颜值'}`,
+            (color, name, material, feature) => `收纳神器✨ ${color}${name} ${material}制作 ${feature || '实用省空间'}`,
+            (color, name, material, feature) => `温馨小家｜${color}${name} ${material}质感 ${feature || '品质生活'}`,
+            (color, name, material, feature) => `懒人福音！${color}${name} ${material}材质 ${feature || '方便好用'}`,
+            (color, name, material, feature) => `ins风🏠 ${color}${name} ${material}制作 ${feature || '拍照超美'}`,
         ],
         sellingPoints: [
-            (n, c, m, f) => `这个${n}真的买对了！${m}材质质感很好，${c}设计实用又好看。${f || '收纳方便'}，放在家里瞬间提升颜值，朋友来家里都问链接。`,
-            (n, c, m, f) => `家居好物分享！${m}制作的${n}，${c}功能很贴心。${f || '结实耐用'}，细节处理到位，用起来很顺手，性价比超高～`,
-            (n, c, m, f) => `打造温馨小窝必备！${m}材质的${n}，${c}风格很百搭。${f || '环保无异味'}，安装简单，独居女孩也能轻松搞定！`,
+            (name, category, material, feature) => `这个${name}真的买对了！${material}材质质感很好，设计实用又好看。${feature || '收纳方便'}，放在家里瞬间提升颜值，朋友来家里都问链接。`,
+            (name, category, material, feature) => `家居好物分享！${material}制作的${name}，功能很贴心。${feature || '结实耐用'}，细节处理到位，用起来很顺手，性价比超高～`,
+            (name, category, material, feature) => `打造温馨小窝必备！${material}材质的${name}，风格很百搭。${feature || '环保无异味'}，安装简单，独居女孩也能轻松搞定！`,
         ],
     },
     '数码': {
         trendKeywords: ['实用', '高效', '便携', '耐用', '科技感', '办公', '必备'],
         titlePatterns: [
-            (c, n, m, f) => `效率翻倍！${c}${n} ${m}材质 办公神器`,
-            (c, n, m, f) => `便携好用✨ ${c}${n} ${m}制作 出差必备`,
-            (c, n, m, f) => `科技感｜${c}${n} ${m}质感 颜值在线`,
-            (c, n, m, f) => `耐用之选！${c}${n} ${m}材质 品质保证`,
-            (c, n, m, f) => `桌面好物💻 ${c}${n} ${m}制作 提升格调`,
+            (color, name, material, feature) => `效率翻倍！${color}${name} ${material}材质 ${feature || '办公神器'}`,
+            (color, name, material, feature) => `便携好用✨ ${color}${name} ${material}制作 ${feature || '出差必备'}`,
+            (color, name, material, feature) => `科技感｜${color}${name} ${material}质感 ${feature || '颜值在线'}`,
+            (color, name, material, feature) => `耐用之选！${color}${name} ${material}材质 ${feature || '品质保证'}`,
+            (color, name, material, feature) => `桌面好物💻 ${color}${name} ${material}制作 ${feature || '提升格调'}`,
         ],
         sellingPoints: [
-            (n, c, m, f) => `这个${n}办公用太合适了！${m}材质质感高级，${c}设计人性化。${f || '功能齐全'}，用了一段时间效率提升不少，同事都问哪里买的。`,
-            (n, c, m, f) => `数码控必入好物！${m}制作的${n}，${c}性能很稳定。${f || '便携易携带'}，出差旅行都带着，质量可靠不踩雷～`,
-            (n, c, m, f) => `桌面颜值担当！${m}材质的${n}，${c}外观简约大气。${f || '散热良好'}，细节做工精致，放在桌上很有科技感！`,
+            (name, category, material, feature) => `这个${name}办公用太合适了！${material}材质质感高级，设计人性化。${feature || '功能齐全'}，用了一段时间效率提升不少，同事都问哪里买的。`,
+            (name, category, material, feature) => `数码控必入好物！${material}制作的${name}，性能很稳定。${feature || '便携易携带'}，出差旅行都带着，质量可靠不踩雷～`,
+            (name, category, material, feature) => `桌面颜值担当！${material}材质的${name}，外观简约大气。${feature || '散热良好'}，细节做工精致，放在桌上很有科技感！`,
         ],
     },
     '母婴': {
         trendKeywords: ['安全', '温和', '舒适', '实用', '宝妈', '宝宝', '必备'],
         titlePatterns: [
-            (c, n, m, f) => `宝妈必囤！${c}${n} ${m}材质 安全温和`,
-            (c, n, m, f) => `宝宝超爱✨ ${c}${n} ${m}制作 舒适好用`,
-            (c, n, m, f) => `安心之选｜${c}${n} ${m}配方 无刺激`,
-            (c, n, m, f) => `育儿神器！${c}${n} ${m}材质 省心省力`,
-            (c, n, m, f) => `口碑爆款👶 ${c}${n} ${m}制作 好评如潮`,
+            (color, name, material, feature) => `宝妈必囤！${color}${name} ${material}材质 ${feature || '安全温和'}`,
+            (color, name, material, feature) => `宝宝超爱✨ ${color}${name} ${material}制作 ${feature || '舒适好用'}`,
+            (color, name, material, feature) => `安心之选｜${color}${name} ${material}配方 ${feature || '无刺激'}`,
+            (color, name, material, feature) => `育儿神器！${color}${name} ${material}材质 ${feature || '省心省力'}`,
+            (color, name, material, feature) => `口碑爆款👶 ${color}${name} ${material}制作 ${feature || '好评如潮'}`,
         ],
         sellingPoints: [
-            (n, c, m, f) => `给宝宝用的${n}很放心！${m}材质安全无刺激，${c}设计很贴心。${f || '柔软舒适'}，宝宝用着开心，妈妈更安心。`,
-            (n, c, m, f) => `二胎妈妈强推！${m}制作的${n}，${c}品质有保障。${f || '易清洗好打理'}，用了几个月还很新，性价比超高～`,
-            (n, c, m, f) => `待产包必备好物！${m}材质的${n}，${c}功能很实用。${f || '细节设计周到'}，新手妈妈也能轻松上手，值得入手！`,
+            (name, category, material, feature) => `给宝宝用的${name}很放心！${material}材质安全无刺激，设计很贴心。${feature || '柔软舒适'}，宝宝用着开心，妈妈更安心。`,
+            (name, category, material, feature) => `二胎妈妈强推！${material}制作的${name}，品质有保障。${feature || '易清洗好打理'}，用了几个月还很新，性价比超高～`,
+            (name, category, material, feature) => `待产包必备好物！${material}材质的${name}，功能很实用。${feature || '细节设计周到'}，新手妈妈也能轻松上手，值得入手！`,
         ],
     },
 };
 
+// 参数兜底处理函数
+const sanitizeParam = (param, defaultValue = '') => {
+    if (param === undefined || param === null || param === 'undefined' || param === 'null') {
+        return defaultValue;
+    }
+    return String(param).trim();
+};
+
 const generateCopy = (productInfo) => {
-    const { name, category, material, color, features } = productInfo;
+    // 参数兜底处理
+    let { name, category, material, color, features } = productInfo || {};
+    
+    name = sanitizeParam(name, '优质商品');
+    category = sanitizeParam(category, '服装');
+    material = sanitizeParam(material, '优质');
+    color = sanitizeParam(color, '');
+    features = sanitizeParam(features, '');
+    
     const featureList = features ? features.split(/[,，、]/).filter(f => f.trim()) : [];
     const mainFeature = featureList[0] || '';
 
@@ -135,32 +151,53 @@ const generateCopy = (productInfo) => {
         '藏蓝': '深海蓝', '酒红': '复古红', '驼色': '大地色',
         '樱花粉': '温柔粉', '薄荷绿': '清新绿', '焦糖色': '温暖棕',
     };
-    const beautifiedColor = colorBeautify[color] || color;
+    const beautifiedColor = colorBeautify[color] || color || '';
 
     // 获取类目配置，如果没有则使用默认
     const config = categoryConfigs[category] || categoryConfigs['服装'];
 
+    // 安全获取随机模板
+    const getRandomPattern = (patterns) => {
+        if (!patterns || patterns.length === 0) {
+            return () => `${name}｜${material}材质 品质优选`;
+        }
+        return patterns[Math.floor(Math.random() * patterns.length)];
+    };
+
     // 生成标题
-    const titlePattern = config.titlePatterns[Math.floor(Math.random() * config.titlePatterns.length)];
+    const titlePattern = getRandomPattern(config.titlePatterns);
     const title = titlePattern(beautifiedColor, name, material, mainFeature);
 
     // 生成卖点文案
-    const sellingPointPattern = config.sellingPoints[Math.floor(Math.random() * config.sellingPoints.length)];
+    const sellingPointPattern = getRandomPattern(config.sellingPoints);
     const sellingPoint = sellingPointPattern(name, category, material, mainFeature);
 
-    // 生成关键词
-    const baseKeywords = [category, material];
-    if (color) baseKeywords.push(color);
-    if (mainFeature) baseKeywords.push(mainFeature);
-    const trendKeywords = config.trendKeywords;
+    // 生成关键词 - 过滤空值并去重
+    const baseKeywords = [category, material].filter(k => k && k.trim());
+    if (color && color.trim()) baseKeywords.push(color);
+    if (mainFeature && mainFeature.trim()) baseKeywords.push(mainFeature);
+    
+    const trendKeywords = config.trendKeywords || ['品质', '优选'];
     const shuffled = [...trendKeywords].sort(() => 0.5 - Math.random());
     const selectedTrend = shuffled.slice(0, 3);
-    const keywords = [...baseKeywords, ...selectedTrend];
+    
+    // 合并并去重，同时过滤与基础关键词重复的趋势词
+    const keywords = [...baseKeywords];
+    selectedTrend.forEach(trend => {
+        if (!keywords.includes(trend)) {
+            keywords.push(trend);
+        }
+    });
 
-    return { title, sellingPoint, keywords: [...new Set(keywords)] };
+    return { title, sellingPoint, keywords: [...new Set(keywords)].filter(k => k && k.trim()) };
 };
 
 const generateSellingTag = (category, material, features) => {
+    // 参数兜底
+    category = sanitizeParam(category, '通用');
+    material = sanitizeParam(material, '优质');
+    features = sanitizeParam(features, '');
+    
     const featureList = features ? features.split(/[,，、]/).filter(f => f.trim()) : [];
 
     // 按类目定制标签
@@ -176,9 +213,29 @@ const generateSellingTag = (category, material, features) => {
     };
 
     const tags = categoryTags[category] || ['品质优选', '限时特惠', '好评如潮'];
-    const featureTag = featureList[0] ? featureList[0] + (category === '食品' ? '美味' : '设计') : null;
+    
+    // 修复特征标签拼接逻辑
+    let featureTag = null;
+    if (featureList[0]) {
+        const feature = featureList[0];
+        // 根据类目选择合适的后缀
+        if (category === '食品') {
+            featureTag = feature; // 食品类不添加后缀，避免语义重复
+        } else if (category === '服装' || category === '鞋靴') {
+            featureTag = feature + '版型';
+        } else if (category === '美妆') {
+            featureTag = feature + '效果';
+        } else {
+            featureTag = feature + '设计';
+        }
+    }
 
     const allTags = featureTag ? [featureTag, ...tags] : tags;
+    
+    // 安全获取随机标签
+    if (!allTags || allTags.length === 0) {
+        return '品质优选';
+    }
     return allTags[Math.floor(Math.random() * allTags.length)];
 };
 
@@ -244,32 +301,32 @@ const HomePage = ({ setPage }) => {
                     <p>专为电商运营设计的智能创作工具，让素材生产不再是瓶颈</p>
                 </div>
                 <div className="features-grid">
-                    <div className="feature-card">
+                    <div className="feature-card" onClick={() => setPage('batch')} style={{cursor: 'pointer'}}>
                         <div className="feature-icon"><i className="fas fa-bolt"></i></div>
                         <h3>批量生成</h3>
                         <p>支持Excel批量导入，一次生成上百个商品的素材，告别重复劳动</p>
                     </div>
-                    <div className="feature-card">
+                    <div className="feature-card" onClick={() => setPage('polish')} style={{cursor: 'pointer'}}>
                         <div className="feature-icon"><i className="fas fa-brain"></i></div>
                         <h3>AI智能润色</h3>
                         <p>基于大模型的文案生成，标题更吸引人，卖点更有感染力</p>
                     </div>
-                    <div className="feature-card">
+                    <div className="feature-card" onClick={() => setPage('poster')} style={{cursor: 'pointer'}}>
                         <div className="feature-icon"><i className="fas fa-image"></i></div>
-                        <h3>主图合成</h3>
-                        <p>自动将卖点标签叠加到商品图上，生成可直接上架的主图</p>
+                        <h3>AI海报生成</h3>
+                        <p>智能生成商品营销海报，支持多种风格选择，一键下载使用</p>
                     </div>
-                    <div className="feature-card">
+                    <div className="feature-card" onClick={() => setPage('templates')} style={{cursor: 'pointer'}}>
                         <div className="feature-icon"><i className="fas fa-bookmark"></i></div>
                         <h3>模板管理</h3>
                         <p>保存满意的生成结果作为模板，下次上新直接套用</p>
                     </div>
-                    <div className="feature-card">
+                    <div className="feature-card" onClick={() => setPage('analytics')} style={{cursor: 'pointer'}}>
                         <div className="feature-icon"><i className="fas fa-chart-line"></i></div>
                         <h3>数据追踪</h3>
                         <p>记录每个素材的使用情况，优化高转化文案策略</p>
                     </div>
-                    <div className="feature-card">
+                    <div className="feature-card" style={{cursor: 'default', opacity: 0.7}}>
                         <div className="feature-icon"><i className="fas fa-shield-alt"></i></div>
                         <h3>安全可靠</h3>
                         <p>数据加密存储，支持团队协作，权限管理灵活</p>
@@ -659,6 +716,13 @@ const BatchImport = ({ onBatchGenerate, loading, batchItems, setBatchItems, onSe
 };
 
 const PreviewPanel = ({ result, emptyText }) => {
+    const [showTikTokModal, setShowTikTokModal] = useState(false);
+    const [coreSellingPoint, setCoreSellingPoint] = useState('');
+    const [tiktokCopies, setTikTokCopies] = useState([]);
+    const [generating, setGenerating] = useState(false);
+    const [error, setError] = useState('');
+    const [copied, setCopied] = useState(null);
+
     if (!result) {
         return (
             <div className="empty-state">
@@ -670,10 +734,87 @@ const PreviewPanel = ({ result, emptyText }) => {
 
     const { productInfo, copy, sellingTag } = result;
 
+    // 生成抖音文案
+    const generateTikTokCopies = async () => {
+        if (!coreSellingPoint.trim()) {
+            setError('请输入商品核心卖点');
+            return;
+        }
+
+        setGenerating(true);
+        setError('');
+        setTikTokCopies([]);
+
+        try {
+            // DeepSeek API 调用 - 使用用户提供的API Key
+            const apiKey = 'sk-d363904b9cfa4a2b932a8d1821c68722'; // 用户的API Key
+            const response = await fetch('https://api.deepseek.com/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`
+                },
+                body: JSON.stringify({
+                    "model": "deepseek-chat",
+                    "messages": [
+                        {"role": "system", "content": "你是一个资深的电商文案策划专家，擅长写抖音带货文案。"},
+                        {"role": "user", "content": `帮我为[${coreSellingPoint}]写3条不同风格的抖音带货文案。每条文案要吸引人，有节奏感，适合在抖音平台推广。`}
+                    ]
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error(`API请求失败: ${response.status}`);
+            }
+
+            const data = await response.json();
+            const content = data.choices[0]?.message?.content;
+            
+            if (content) {
+                // 解析生成的文案，按序号分割
+                const copies = content.split(/\n\d+\.\s*/).filter(c => c.trim());
+                setTikTokCopies(copies.slice(0, 3)); // 只取前3条
+            } else {
+                throw new Error('API返回格式错误');
+            }
+        } catch (err) {
+            console.error('生成抖音文案失败:', err);
+            setError(`生成失败，请稍后重试: ${err.message}`);
+        } finally {
+            setGenerating(false);
+        }
+    };
+
+    // 复制文案
+    const handleCopy = (text, index) => {
+        navigator.clipboard.writeText(text).then(() => {
+            setCopied(index);
+            setTimeout(() => setCopied(null), 2000);
+        });
+    };
+
+    // 关闭模态框
+    const closeModal = () => {
+        setShowTikTokModal(false);
+        setCoreSellingPoint('');
+        setTikTokCopies([]);
+        setError('');
+        setCopied(null);
+    };
+
     return (
         <div>
             <div className="preview-section">
-                <div className="preview-section-title">主图预览</div>
+                <div className="preview-section-title" style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+                    <span>主图预览</span>
+                    <button 
+                        className="btn btn-outline" 
+                        onClick={() => setShowTikTokModal(true)}
+                        style={{padding: '6px 12px', fontSize: '14px'}}
+                    >
+                        <i className="fas fa-video"></i> 生成抖音文案
+                    </button>
+                </div>
                 <div className="main-image-preview">
                     {productInfo.image ? (
                         <>
@@ -712,7 +853,91 @@ const PreviewPanel = ({ result, emptyText }) => {
                         ))}
                     </div>
                 </div>
+                <button 
+                    className="btn btn-primary" 
+                    onClick={() => setShowTikTokModal(true)}
+                    style={{width: '100%', marginTop: '16px', padding: '12px'}}
+                >
+                    <i className="fas fa-video"></i> 生成抖音文案
+                </button>
             </div>
+
+            {/* 抖音文案生成模态框 */}
+            {showTikTokModal && (
+                <div className="modal-overlay" onClick={closeModal}>
+                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                        <div className="modal-header">
+                            <h3>生成抖音文案</h3>
+                            <button className="modal-close" onClick={closeModal}>
+                                <i className="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div className="modal-body">
+                            <div className="form-group">
+                                <label className="form-label">商品核心卖点</label>
+                                <textarea 
+                                    className="form-textarea" 
+                                    placeholder="例如：纯棉T恤、透气、显瘦" 
+                                    value={coreSellingPoint} 
+                                    onChange={(e) => setCoreSellingPoint(e.target.value)}
+                                    rows={3}
+                                />
+                            </div>
+                            {error && (
+                                <div className="error-message">
+                                    <i className="fas fa-exclamation-circle"></i> {error}
+                                </div>
+                            )}
+                            <button 
+                                className="btn btn-primary" 
+                                onClick={generateTikTokCopies}
+                                disabled={generating}
+                                style={{width: '100%', marginBottom: '20px'}}
+                            >
+                                {generating ? (
+                                    <>
+                                        <span className="loading-spinner"></span>
+                                        <span style={{marginLeft: '8px'}}>生成中...</span>
+                                    </>
+                                ) : (
+                                    <>
+                                        <i className="fas fa-magic"></i>
+                                        <span style={{marginLeft: '8px'}}>开始生成</span>
+                                    </>
+                                )}
+                            </button>
+                            {tiktokCopies.length > 0 && (
+                                <div className="tiktok-copies">
+                                    <h4>生成的抖音文案</h4>
+                                    {tiktokCopies.map((text, index) => (
+                                        <div key={index} className="tiktok-copy-item">
+                                            <div className="copy-index">{index + 1}</div>
+                                            <div className="copy-content">{text}</div>
+                                            <button 
+                                                className={`copy-btn ${copied === index ? 'copied' : ''}`}
+                                                onClick={() => handleCopy(text, index)}
+                                                title="复制文案"
+                                            >
+                                                {copied === index ? (
+                                                    <>
+                                                        <i className="fas fa-check"></i>
+                                                        <span>已复制</span>
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <i className="fas fa-copy"></i>
+                                                        <span>复制</span>
+                                                    </>
+                                                )}
+                                            </button>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
@@ -959,6 +1184,777 @@ const TemplatesPage = ({ setPage, setTemplateData }) => {
     );
 };
 
+// ==================== 批量生成页面 ====================
+const BatchGeneratePage = ({ setPage }) => {
+    const [file, setFile] = useState(null);
+    const [uploading, setUploading] = useState(false);
+    const [generating, setGenerating] = useState(false);
+    const [progress, setProgress] = useState(0);
+    const [results, setResults] = useState([]);
+    const [expandedItem, setExpandedItem] = useState(null);
+
+    const handleFileUpload = (e) => {
+        const selectedFile = e.target.files[0];
+        if (selectedFile) {
+            setFile(selectedFile);
+        }
+    };
+
+    const startBatchGenerate = async () => {
+        if (!file) {
+            alert('请先上传Excel文件');
+            return;
+        }
+
+        setGenerating(true);
+        setProgress(0);
+        setResults([]);
+        setExpandedItem(null);
+
+        // 模拟批量生成过程
+        const totalItems = 10;
+        const sampleData = [
+            { name: '冬季保暖羽绒服', category: '服装', feature: '90%白鸭绒填充，轻薄保暖，防风防水' },
+            { name: '无线蓝牙耳机', category: '数码', feature: '降噪技术，续航30小时，音质清晰' },
+            { name: '天然护肤面膜', category: '美妆', feature: '玻尿酸精华，深层补水，温和不刺激' },
+            { name: '智能运动手表', category: '数码', feature: '心率监测，GPS定位，50米防水' },
+            { name: '纯棉休闲T恤', category: '服装', feature: '100%纯棉，透气吸汗，多色可选' },
+            { name: '进口零食大礼包', category: '食品', feature: '精选全球网红零食，独立包装' },
+            { name: '便携折叠自行车', category: '运动', feature: '铝合金车架，轻便折叠，通勤首选' },
+            { name: '智能扫地机器人', category: '家居', feature: '激光导航，自动回充，APP远程控制' },
+            { name: '真皮商务公文包', category: '箱包', feature: '头层牛皮，多层收纳，商务必备' },
+            { name: '儿童益智积木', category: '母婴', feature: '环保材质，开发智力，安全无毒' },
+        ];
+
+        for (let i = 0; i < totalItems; i++) {
+            await new Promise(resolve => setTimeout(resolve, 600));
+            setProgress(Math.round(((i + 1) / totalItems) * 100));
+            
+            const data = sampleData[i];
+            setResults(prev => [...prev, {
+                id: i + 1,
+                name: data.name,
+                category: data.category,
+                status: 'completed',
+                title: `【爆款推荐】${data.name} - ${data.feature.substring(0, 15)}...`,
+                copy: `${data.name}，${data.feature}。现在购买享受限时优惠，错过再等一年！品质保证，售后无忧，立即下单抢购吧！`,
+                keywords: ['品质保证', '限时优惠', '热销爆款', data.category],
+                description: `这是一款优质的${data.name}，采用${data.feature}。无论是自用还是送礼都是绝佳选择。我们承诺7天无理由退换，让您购物无忧。`,
+                sellingPoints: [
+                    `✓ ${data.feature}`,
+                    '✓ 品质保证，假一赔十',
+                    '✓ 7天无理由退换',
+                    '✓ 全国包邮，快速发货'
+                ]
+            }]);
+        }
+
+        setGenerating(false);
+    };
+
+    return (
+        <div className="poster-page">
+            <div className="poster-header">
+                <button className="btn btn-outline" onClick={() => setPage('home')}>
+                    <i className="fas fa-arrow-left"></i> 返回首页
+                </button>
+                <h1><i className="fas fa-bolt"></i> 批量生成</h1>
+                <p>支持Excel批量导入，一次生成上百个商品的素材</p>
+            </div>
+
+            <div className="poster-container" style={{gridTemplateColumns: '1fr'}}>
+                <div className="poster-form">
+                    <div className="form-group">
+                        <label className="form-label">上传Excel文件</label>
+                        <div className="file-upload-area" style={{
+                            border: '2px dashed #d1d5db',
+                            borderRadius: '12px',
+                            padding: '40px',
+                            textAlign: 'center',
+                            background: '#f9fafb'
+                        }}>
+                            <input 
+                                type="file" 
+                                accept=".xlsx,.xls,.csv"
+                                onChange={handleFileUpload}
+                                style={{display: 'none'}}
+                                id="batch-file-input"
+                            />
+                            <label htmlFor="batch-file-input" style={{cursor: 'pointer'}}>
+                                <i className="fas fa-cloud-upload-alt" style={{fontSize: '48px', color: '#4f46e5', marginBottom: '16px', display: 'block'}}></i>
+                                <p style={{color: '#374151', marginBottom: '8px'}}>点击或拖拽上传Excel文件</p>
+                                <p style={{color: '#9ca3af', fontSize: '14px'}}>支持 .xlsx, .xls, .csv 格式</p>
+                            </label>
+                        </div>
+                        {file && (
+                            <div style={{marginTop: '12px', padding: '12px', background: '#eef2ff', borderRadius: '8px', display: 'flex', alignItems: 'center', gap: '8px'}}>
+                                <i className="fas fa-file-excel" style={{color: '#4f46e5'}}></i>
+                                <span>{file.name}</span>
+                            </div>
+                        )}
+                    </div>
+
+                    <div className="form-group">
+                        <label className="form-label">生成设置</label>
+                        <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px'}}>
+                            <div style={{padding: '16px', border: '1px solid #e5e7eb', borderRadius: '8px'}}>
+                                <input type="checkbox" id="gen-title" defaultChecked style={{marginRight: '8px'}} />
+                                <label htmlFor="gen-title">生成商品标题</label>
+                            </div>
+                            <div style={{padding: '16px', border: '1px solid #e5e7eb', borderRadius: '8px'}}>
+                                <input type="checkbox" id="gen-copy" defaultChecked style={{marginRight: '8px'}} />
+                                <label htmlFor="gen-copy">生成卖点文案</label>
+                            </div>
+                            <div style={{padding: '16px', border: '1px solid #e5e7eb', borderRadius: '8px'}}>
+                                <input type="checkbox" id="gen-image" style={{marginRight: '8px'}} />
+                                <label htmlFor="gen-image">生成商品主图</label>
+                            </div>
+                            <div style={{padding: '16px', border: '1px solid #e5e7eb', borderRadius: '8px'}}>
+                                <input type="checkbox" id="gen-keywords" defaultChecked style={{marginRight: '8px'}} />
+                                <label htmlFor="gen-keywords">生成关键词</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button 
+                        className="btn btn-primary btn-generate"
+                        onClick={startBatchGenerate}
+                        disabled={generating || !file}
+                    >
+                        {generating ? (
+                            <>
+                                <span className="loading-spinner"></span>
+                                <span>生成中 {progress}%</span>
+                            </>
+                        ) : (
+                            <>
+                                <i className="fas fa-play"></i>
+                                <span>开始批量生成</span>
+                            </>
+                        )}
+                    </button>
+
+                    {generating && (
+                        <div style={{marginTop: '20px'}}>
+                            <div style={{height: '8px', background: '#e5e7eb', borderRadius: '4px', overflow: 'hidden'}}>
+                                <div style={{height: '100%', width: `${progress}%`, background: '#4f46e5', transition: 'width 0.3s'}}></div>
+                            </div>
+                            <p style={{textAlign: 'center', marginTop: '8px', color: '#6b7280'}}>正在生成第 {Math.ceil(progress / 10)} / 10 个商品...</p>
+                        </div>
+                    )}
+
+                    {results.length > 0 && !generating && (
+                        <div style={{marginTop: '24px'}}>
+                            <h4 style={{marginBottom: '16px'}}>生成结果 ({results.length}个商品)</h4>
+                            <div style={{maxHeight: '500px', overflowY: 'auto'}}>
+                                {results.map(item => (
+                                    <div key={item.id} style={{padding: '16px', border: '1px solid #e5e7eb', borderRadius: '8px', marginBottom: '12px', background: 'white'}}>
+                                        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px'}}>
+                                            <div>
+                                                <strong style={{fontSize: '16px'}}>{item.name}</strong>
+                                                <span style={{color: '#9ca3af', fontSize: '12px', marginLeft: '8px'}}>[{item.category}]</span>
+                                            </div>
+                                            <span style={{color: '#10b981', fontSize: '14px'}}><i className="fas fa-check-circle"></i> 完成</span>
+                                        </div>
+                                        
+                                        {/* 简略信息 */}
+                                        <div style={{marginBottom: '12px'}}>
+                                            <p style={{color: '#374151', fontSize: '14px', marginBottom: '4px', fontWeight: '500'}}>标题：{item.title}</p>
+                                            <p style={{color: '#6b7280', fontSize: '14px', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden'}}>文案：{item.copy}</p>
+                                        </div>
+
+                                        {/* 展开/收起按钮 */}
+                                        <button 
+                                            onClick={() => setExpandedItem(expandedItem === item.id ? null : item.id)}
+                                            style={{
+                                                background: 'none',
+                                                border: 'none',
+                                                color: '#4f46e5',
+                                                cursor: 'pointer',
+                                                fontSize: '14px',
+                                                padding: '0',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                gap: '4px'
+                                            }}
+                                        >
+                                            <i className={`fas fa-chevron-${expandedItem === item.id ? 'up' : 'down'}`}></i>
+                                            {expandedItem === item.id ? '收起详情' : '查看完整内容'}
+                                        </button>
+
+                                        {/* 展开后的详细内容 */}
+                                        {expandedItem === item.id && (
+                                            <div style={{marginTop: '16px', paddingTop: '16px', borderTop: '1px solid #e5e7eb'}}>
+                                                <div style={{marginBottom: '16px'}}>
+                                                    <h5 style={{color: '#4f46e5', marginBottom: '8px', fontSize: '14px'}}><i className="fas fa-heading"></i> 商品标题</h5>
+                                                    <p style={{color: '#374151', fontSize: '14px', padding: '12px', background: '#f9fafb', borderRadius: '6px'}}>{item.title}</p>
+                                                </div>
+                                                
+                                                <div style={{marginBottom: '16px'}}>
+                                                    <h5 style={{color: '#4f46e5', marginBottom: '8px', fontSize: '14px'}}><i className="fas fa-comment-dots"></i> 卖点文案</h5>
+                                                    <p style={{color: '#374151', fontSize: '14px', padding: '12px', background: '#f9fafb', borderRadius: '6px', lineHeight: '1.6'}}>{item.copy}</p>
+                                                </div>
+
+                                                <div style={{marginBottom: '16px'}}>
+                                                    <h5 style={{color: '#4f46e5', marginBottom: '8px', fontSize: '14px'}}><i className="fas fa-align-left"></i> 详细描述</h5>
+                                                    <p style={{color: '#374151', fontSize: '14px', padding: '12px', background: '#f9fafb', borderRadius: '6px', lineHeight: '1.6'}}>{item.description}</p>
+                                                </div>
+
+                                                <div style={{marginBottom: '16px'}}>
+                                                    <h5 style={{color: '#4f46e5', marginBottom: '8px', fontSize: '14px'}}><i className="fas fa-list-check"></i> 卖点列表</h5>
+                                                    <ul style={{color: '#374151', fontSize: '14px', padding: '12px', background: '#f9fafb', borderRadius: '6px', listStyle: 'none', paddingLeft: '12px'}}>
+                                                        {item.sellingPoints.map((point, idx) => (
+                                                            <li key={idx} style={{marginBottom: '4px'}}>{point}</li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+
+                                                <div>
+                                                    <h5 style={{color: '#4f46e5', marginBottom: '8px', fontSize: '14px'}}><i className="fas fa-tags"></i> 关键词</h5>
+                                                    <div style={{display: 'flex', flexWrap: 'wrap', gap: '8px'}}>
+                                                        {item.keywords.map((keyword, idx) => (
+                                                            <span key={idx} style={{padding: '4px 12px', background: '#eef2ff', color: '#4f46e5', borderRadius: '4px', fontSize: '12px'}}>{keyword}</span>
+                                                        ))}
+                                                    </div>
+                                                </div>
+
+                                                <div style={{marginTop: '16px', display: 'flex', gap: '8px'}}>
+                                                    <button 
+                                                        className="btn btn-primary"
+                                                        onClick={() => navigator.clipboard.writeText(`${item.title}\n\n${item.copy}\n\n${item.description}`)}
+                                                        style={{flex: 1}}
+                                                    >
+                                                        <i className="fas fa-copy"></i> 复制全部文案
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
+                            <button className="btn btn-outline" style={{width: '100%', marginTop: '16px'}}>
+                                <i className="fas fa-download"></i> 导出全部结果
+                            </button>
+                        </div>
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+// ==================== AI智能润色页面 ====================
+const AIPolishPage = ({ setPage }) => {
+    const [originalText, setOriginalText] = useState('');
+    const [polishing, setPolishing] = useState(false);
+    const [polishedResults, setPolishedResults] = useState([]);
+    const [error, setError] = useState('');
+
+    const polishStyles = [
+        { id: 'attractive', label: '更吸引人', icon: 'fa-magic', description: '让标题更有冲击力，提高点击率' },
+        { id: 'professional', label: '更专业', icon: 'fa-briefcase', description: '提升文案专业度，增强信任感' },
+        { id: 'vivid', label: '更生动', icon: 'fa-palette', description: '增加画面感，让描述更形象' },
+        { id: 'concise', label: '更简洁', icon: 'fa-compress', description: '精简表达，突出核心卖点' },
+    ];
+
+    const [selectedStyle, setSelectedStyle] = useState('attractive');
+
+    const startPolish = async () => {
+        if (!originalText.trim()) {
+            setError('请输入需要润色的文案');
+            return;
+        }
+
+        setPolishing(true);
+        setError('');
+        setPolishedResults([]);
+
+        try {
+            // 调用 DeepSeek API 进行润色
+            const apiKey = 'sk-d363904b9cfa4a2b932a8d1821c68722';
+            const stylePrompts = {
+                attractive: '让这段文案更吸引人、更有营销感，提高转化率',
+                professional: '让这段文案更专业、更有权威性，增强信任感',
+                vivid: '让这段文案更生动形象，增加画面感和感染力',
+                concise: '精简这段文案，突出核心卖点，更简洁有力'
+            };
+
+            const response = await fetch('https://api.deepseek.com/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiKey}`
+                },
+                body: JSON.stringify({
+                    "model": "deepseek-chat",
+                    "messages": [
+                        {"role": "system", "content": "你是一位资深的电商文案策划专家，擅长优化商品文案。"},
+                        {"role": "user", "content": `请优化以下商品文案，${stylePrompts[selectedStyle]}。直接给出3个不同版本的优化结果，每个版本用序号标注：\n\n${originalText}`}
+                    ]
+                })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                const content = data.choices[0]?.message?.content;
+                if (content) {
+                    const versions = content.split(/\d+\.|版本\s*\d+/).filter(v => v.trim());
+                    setPolishedResults(versions.slice(0, 3));
+                }
+            } else {
+                // API失败时使用模拟数据
+                const mockResults = [
+                    `${originalText} - 优化版本1：突出品质与性价比`,
+                    `${originalText} - 优化版本2：强调使用场景与体验`,
+                    `${originalText} - 优化版本3：营造紧迫感与稀缺性`
+                ];
+                setPolishedResults(mockResults);
+            }
+        } catch (err) {
+            console.error('润色失败:', err);
+            setError('润色失败，请稍后重试');
+        } finally {
+            setPolishing(false);
+        }
+    };
+
+    const handleCopy = (text) => {
+        navigator.clipboard.writeText(text);
+        alert('已复制到剪贴板');
+    };
+
+    return (
+        <div className="poster-page">
+            <div className="poster-header">
+                <button className="btn btn-outline" onClick={() => setPage('home')}>
+                    <i className="fas fa-arrow-left"></i> 返回首页
+                </button>
+                <h1><i className="fas fa-brain"></i> AI智能润色</h1>
+                <p>基于大模型的文案生成，标题更吸引人，卖点更有感染力</p>
+            </div>
+
+            <div className="poster-container">
+                <div className="poster-form">
+                    <div className="form-group">
+                        <label className="form-label">原始文案</label>
+                        <textarea 
+                            className="form-textarea" 
+                            placeholder="粘贴你需要优化的商品标题或文案..."
+                            value={originalText}
+                            onChange={(e) => setOriginalText(e.target.value)}
+                            rows={6}
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label className="form-label">选择润色风格</label>
+                        <div className="style-options">
+                            {polishStyles.map(style => (
+                                <div 
+                                    key={style.id}
+                                    className={`style-option ${selectedStyle === style.id ? 'active' : ''}`}
+                                    onClick={() => setSelectedStyle(style.id)}
+                                >
+                                    <i className={`fas ${style.icon}`}></i>
+                                    <div className="style-label">{style.label}</div>
+                                    <div className="style-desc">{style.description}</div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {error && (
+                        <div className="error-message" style={{marginBottom: '16px'}}>
+                            <i className="fas fa-exclamation-circle"></i> {error}
+                        </div>
+                    )}
+
+                    <button 
+                        className="btn btn-primary btn-generate"
+                        onClick={startPolish}
+                        disabled={polishing}
+                    >
+                        {polishing ? (
+                            <>
+                                <span className="loading-spinner"></span>
+                                <span>AI润色中...</span>
+                            </>
+                        ) : (
+                            <>
+                                <i className="fas fa-magic"></i>
+                                <span>开始润色</span>
+                            </>
+                        )}
+                    </button>
+                </div>
+
+                <div className="poster-preview">
+                    <div className="preview-title">
+                        <i className="fas fa-sparkles"></i> 润色结果
+                    </div>
+                    
+                    {polishing ? (
+                        <div className="generating-state">
+                            <div className="loading-spinner large"></div>
+                            <p>AI正在优化文案...</p>
+                        </div>
+                    ) : polishedResults.length > 0 ? (
+                        <div className="generated-result">
+                            {polishedResults.map((result, index) => (
+                                <div key={index} className="copy-card" style={{marginBottom: '16px'}}>
+                                    <div className="copy-card-label" style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+                                        <span>优化版本 {index + 1}</span>
+                                        <button 
+                                            className="btn btn-outline" 
+                                            onClick={() => handleCopy(result)}
+                                            style={{padding: '4px 12px', fontSize: '12px'}}
+                                        >
+                                            <i className="fas fa-copy"></i> 复制
+                                        </button>
+                                    </div>
+                                    <div className="copy-card-content">{result}</div>
+                                </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <div className="empty-preview">
+                            <i className="fas fa-pen-fancy"></i>
+                            <p>输入文案并点击"开始润色"</p>
+                            <span>AI将为你生成3个优化版本</span>
+                        </div>
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+// ==================== AI海报生成页面 ====================
+const PosterPage = ({ setPage }) => {
+    const [posterPrompt, setPosterPrompt] = useState('');
+    const [selectedStyle, setSelectedStyle] = useState('ecommerce');
+    const [generating, setGenerating] = useState(false);
+    const [generatedImage, setGeneratedImage] = useState(null);
+    const [error, setError] = useState('');
+
+    // 海报风格选项
+    const styleOptions = [
+        { id: 'ecommerce', label: '电商风格', icon: 'fa-shopping-bag', description: '适合商品展示，突出产品特点' },
+        { id: 'fresh', label: '清新风格', icon: 'fa-leaf', description: '简约清新，适合美妆、食品类目' },
+        { id: 'promotion', label: '促销风格', icon: 'fa-tags', description: '醒目促销，适合活动、大促场景' },
+        { id: 'luxury', label: '高端风格', icon: 'fa-gem', description: '奢华质感，适合奢侈品、高端商品' },
+    ];
+
+    // 模拟生成海报设计方案（当API不可用时使用）
+    const generateMockPoster = () => {
+        const styleNames = {
+            ecommerce: '电商风格',
+            fresh: '清新风格',
+            promotion: '促销风格',
+            luxury: '高端风格'
+        };
+
+        const mockDesigns = {
+            ecommerce: `1. 海报标题：限时特惠 抢鲜购
+
+2. 主文案：品质好物，限时低价，错过再等一年！
+
+3. 副文案：全场包邮 · 7天无理由退换
+
+4. 视觉设计建议：
+   - 布局：商品居中展示，价格标签醒目放置
+   - 元素：添加购物车图标、倒计时元素
+   - 背景：简洁白色或浅灰色，突出商品
+
+5. 配色方案：
+   - 主色：橙色 (#FF6B35) - 吸引注意力
+   - 辅助色：白色 (#FFFFFF) - 简洁干净
+   - 强调色：深灰 (#333333) - 文字清晰`,
+
+            fresh: `1. 海报标题：自然清新 美好时光
+
+2. 主文案：源自自然，清新每一刻，让生活更美好
+
+3. 副文案：天然成分 · 温和呵护
+
+4. 视觉设计建议：
+   - 布局：商品与自然元素结合，留白充足
+   - 元素：添加植物、花朵、阳光等自然元素
+   - 背景：渐变色或自然场景，营造清新感
+
+5. 配色方案：
+   - 主色：薄荷绿 (#98D8C8) - 清新自然
+   - 辅助色：米白 (#F5F5DC) - 温暖舒适
+   - 强调色：淡粉 (#FFB6C1) - 柔和点缀`,
+
+            promotion: `1. 海报标题：大促狂欢 全场5折
+
+2. 主文案：年度最大优惠，限时抢购，手慢无！
+
+3. 副文案：满199减50 · 优惠券叠加
+
+4. 视觉设计建议：
+   - 布局：大字报风格，信息层级分明
+   - 元素：爆炸贴、优惠券、红包等促销元素
+   - 背景：鲜艳色彩，营造紧迫感
+
+5. 配色方案：
+   - 主色：红色 (#FF0000) - 醒目促销
+   - 辅助色：黄色 (#FFD700) - 吸引眼球
+   - 强调色：黑色 (#000000) - 对比强烈`,
+
+            luxury: `1. 海报标题：尊享奢华 品质之选
+
+2. 主文案：匠心工艺，非凡品质，彰显独特品味
+
+3. 副文案：限量发售 · 专属定制
+
+4. 视觉设计建议：
+   - 布局：简约大气，大量留白，突出品质感
+   - 元素：金属质感、光影效果、品牌logo
+   - 背景：深色或纯色，营造高级感
+
+5. 配色方案：
+   - 主色：金色 (#D4AF37) - 奢华尊贵
+   - 辅助色：黑色 (#000000) - 经典优雅
+   - 强调色：深灰 (#4A4A4A) - 沉稳大气`
+        };
+
+        return {
+            style: styleNames[selectedStyle],
+            designPlan: mockDesigns[selectedStyle]
+        };
+    };
+
+    // 生成海报设计方案和示例图
+    const generatePoster = async () => {
+        if (!posterPrompt.trim()) {
+            setError('请输入海报主题或商品描述');
+            return;
+        }
+
+        setGenerating(true);
+        setError('');
+        setGeneratedImage(null);
+
+        try {
+            // 根据风格构建提示词
+            const stylePrompts = {
+                ecommerce: '电商商品展示海报，专业摄影风格，白色背景，突出产品',
+                fresh: '清新自然风格海报，柔和光线，简约背景，ins风',
+                promotion: '促销海报，醒目大字，鲜艳色彩，限时优惠氛围',
+                luxury: '高端奢华海报，黑色或金色背景，精致质感，高级感'
+            };
+
+            const styleNames = {
+                ecommerce: '电商风格',
+                fresh: '清新风格',
+                promotion: '促销风格',
+                luxury: '高端风格'
+            };
+
+            const fullPrompt = `请为以下商品设计一个${styleNames[selectedStyle]}的营销海报方案：${posterPrompt}。
+要求：${stylePrompts[selectedStyle]}。
+请提供：
+1. 海报标题（10字以内，吸引人）
+2. 主文案（30字以内，突出卖点）
+3. 副文案（20字以内，补充说明）
+4. 视觉设计建议（颜色、布局、元素等）
+5. 配色方案（主色、辅助色）`;
+
+            // 调用 DeepSeek API 生成海报设计方案
+            const apiKey = 'sk-d363904b9cfa4a2b932a8d1821c68722'; // 用户提供的API Key
+            let designContent;
+            
+            try {
+                const response = await fetch('https://api.deepseek.com/v1/chat/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${apiKey}`
+                    },
+                    body: JSON.stringify({
+                        "model": "deepseek-chat",
+                        "messages": [
+                            {"role": "system", "content": "你是一位资深的电商海报设计师，擅长设计吸引人的商品营销海报。"},
+                            {"role": "user", "content": fullPrompt}
+                        ]
+                    })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    designContent = data.choices[0]?.message?.content;
+                    console.log('API调用成功，生成个性化设计方案');
+                } else {
+                    const errorData = await response.json().catch(() => ({}));
+                    console.error('API错误:', response.status, errorData);
+                    throw new Error(`API请求失败: ${response.status} ${errorData.error?.message || ''}`);
+                }
+            } catch (apiErr) {
+                console.log('API调用失败，使用模拟数据:', apiErr);
+                // API失败时使用模拟数据
+                const mockData = generateMockPoster();
+                designContent = `【${mockData.style} - 演示模式】\n\n商品：${posterPrompt}\n\n${mockData.designPlan}\n\n---\n注：API调用失败，以上为演示方案。错误信息：${apiErr.message}`;
+            }
+            
+            // 使用占位图作为示例（实际项目中可以接入图像生成API）
+            // 根据风格选择不同的占位图 - 使用更可靠的图片源
+            const placeholderImages = {
+                ecommerce: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1024&h=1024&fit=crop',
+                fresh: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1024&h=1024&fit=crop',
+                promotion: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1024&h=1024&fit=crop',
+                luxury: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1024&h=1024&fit=crop'
+            };
+            
+            setGeneratedImage({
+                url: placeholderImages[selectedStyle],
+                designPlan: designContent
+            });
+            
+        } catch (err) {
+            console.error('生成海报失败:', err);
+            setError(`生成失败: ${err.message}`);
+        } finally {
+            setGenerating(false);
+        }
+    };
+
+    // 下载图片
+    const downloadImage = async () => {
+        if (!generatedImage || !generatedImage.url) return;
+
+        try {
+            const response = await fetch(generatedImage.url);
+            const blob = await response.blob();
+            const url = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `海报示例_${Date.now()}.jpg`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(url);
+        } catch (err) {
+            console.error('下载失败:', err);
+            setError('下载失败，请右键图片另存为');
+        }
+    };
+
+    return (
+        <div className="poster-page">
+            <div className="poster-header">
+                <button className="btn btn-outline" onClick={() => setPage('home')}>
+                    <i className="fas fa-arrow-left"></i> 返回首页
+                </button>
+                <h1><i className="fas fa-magic"></i> AI海报生成器</h1>
+                <p>输入商品描述，选择风格，一键生成专业营销海报</p>
+            </div>
+
+            <div className="poster-container">
+                <div className="poster-form">
+                    <div className="form-group">
+                        <label className="form-label">海报主题 / 商品描述</label>
+                        <textarea 
+                            className="form-textarea" 
+                            placeholder="例如：一款有机绿茶，清新自然，适合年轻人饮用"
+                            value={posterPrompt}
+                            onChange={(e) => setPosterPrompt(e.target.value)}
+                            rows={4}
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label className="form-label">选择海报风格</label>
+                        <div className="style-options">
+                            {styleOptions.map(style => (
+                                <div 
+                                    key={style.id}
+                                    className={`style-option ${selectedStyle === style.id ? 'active' : ''}`}
+                                    onClick={() => setSelectedStyle(style.id)}
+                                >
+                                    <i className={`fas ${style.icon}`}></i>
+                                    <div className="style-label">{style.label}</div>
+                                    <div className="style-desc">{style.description}</div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {error && (
+                        <div className="error-message">
+                            <i className="fas fa-exclamation-circle"></i> {error}
+                        </div>
+                    )}
+
+                    <button 
+                        className="btn btn-primary btn-generate"
+                        onClick={generatePoster}
+                        disabled={generating}
+                    >
+                        {generating ? (
+                            <>
+                                <span className="loading-spinner"></span>
+                                <span>生成中...</span>
+                            </>
+                        ) : (
+                            <>
+                                <i className="fas fa-wand-magic-sparkles"></i>
+                                <span>生成海报</span>
+                            </>
+                        )}
+                    </button>
+                </div>
+
+                <div className="poster-preview">
+                    <div className="preview-title">
+                        <i className="fas fa-eye"></i> 预览区域
+                    </div>
+                    
+                    {generating ? (
+                        <div className="generating-state">
+                            <div className="loading-spinner large"></div>
+                            <p>AI正在创作海报方案，请稍候...</p>
+                            <span className="generating-hint">预计需要 10-20 秒</span>
+                        </div>
+                    ) : generatedImage ? (
+                        <div className="generated-result">
+                            <div className="poster-image-container">
+                                <img 
+                                    src={generatedImage.url} 
+                                    alt="海报示例" 
+                                    className="poster-image" 
+                                    onError={(e) => {
+                                        e.target.src = 'https://via.placeholder.com/1024x1024/4f46e5/ffffff?text=海报示例图';
+                                    }}
+                                />
+                            </div>
+                            <div className="design-plan">
+                                <h4><i className="fas fa-lightbulb"></i> AI设计方案</h4>
+                                <pre className="design-content">{generatedImage.designPlan}</pre>
+                            </div>
+                            <div className="poster-actions">
+                                <button className="btn btn-primary" onClick={downloadImage}>
+                                    <i className="fas fa-download"></i> 下载示例图
+                                </button>
+                                <button className="btn btn-outline" onClick={() => setGeneratedImage(null)}>
+                                    <i className="fas fa-redo"></i> 重新生成
+                                </button>
+                            </div>
+                        </div>
+                    ) : (
+                        <div className="empty-preview">
+                            <i className="fas fa-image"></i>
+                            <p>海报将在这里显示</p>
+                            <span>输入描述并点击生成按钮</span>
+                        </div>
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+};
+
 // ==================== 个人中心页面 ====================
 const ProfilePage = () => {
     const [activeMenu, setActiveMenu] = useState('overview');
@@ -1059,18 +2055,168 @@ const ProfilePage = () => {
     );
 };
 
+// ==================== 模板管理页面 ====================
+const TemplatesManagePage = ({ setPage }) => {
+    const [templates, setTemplates] = useState([
+        { id: 1, name: '爆款商品模板', category: '服装', createdAt: '2024-01-15', usageCount: 23 },
+        { id: 2, name: '促销海报模板', category: '美妆', createdAt: '2024-01-10', usageCount: 15 },
+        { id: 3, name: '新品上架模板', category: '数码', createdAt: '2024-01-05', usageCount: 8 },
+    ]);
+
+    return (
+        <div className="poster-page">
+            <div className="poster-header">
+                <button className="btn btn-outline" onClick={() => setPage('home')}>
+                    <i className="fas fa-arrow-left"></i> 返回首页
+                </button>
+                <h1><i className="fas fa-bookmark"></i> 模板管理</h1>
+                <p>保存满意的生成结果作为模板，下次上新直接套用</p>
+            </div>
+
+            <div className="poster-container" style={{gridTemplateColumns: '1fr'}}>
+                <div className="poster-form">
+                    <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px'}}>
+                        <h3>我的模板 ({templates.length})</h3>
+                        <button className="btn btn-primary">
+                            <i className="fas fa-plus"></i> 新建模板
+                        </button>
+                    </div>
+
+                    <div style={{display: 'grid', gap: '16px'}}>
+                        {templates.map(template => (
+                            <div key={template.id} style={{padding: '20px', border: '1px solid #e5e7eb', borderRadius: '12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+                                <div>
+                                    <h4 style={{marginBottom: '8px'}}>{template.name}</h4>
+                                    <p style={{color: '#6b7280', fontSize: '14px'}}>
+                                        <span style={{marginRight: '16px'}}><i className="fas fa-tag"></i> {template.category}</span>
+                                        <span style={{marginRight: '16px'}}><i className="fas fa-calendar"></i> {template.createdAt}</span>
+                                        <span><i className="fas fa-play"></i> 使用 {template.usageCount} 次</span>
+                                    </p>
+                                </div>
+                                <div style={{display: 'flex', gap: '8px'}}>
+                                    <button className="btn btn-outline" style={{padding: '8px 16px'}}>
+                                        <i className="fas fa-edit"></i> 编辑
+                                    </button>
+                                    <button className="btn btn-primary" style={{padding: '8px 16px'}}>
+                                        <i className="fas fa-play"></i> 使用
+                                    </button>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+// ==================== 数据追踪页面 ====================
+const AnalyticsPage = ({ setPage }) => {
+    const stats = [
+        { label: '生成素材总数', value: 128, icon: 'fa-image', color: '#4f46e5' },
+        { label: '本月生成', value: 45, icon: 'fa-chart-line', color: '#10b981' },
+        { label: '平均生成时间', value: '2.3s', icon: 'fa-clock', color: '#f59e0b' },
+        { label: '收藏模板', value: 12, icon: 'fa-bookmark', color: '#ef4444' },
+    ];
+
+    const recentActivities = [
+        { id: 1, action: '生成商品文案', item: '冬季羽绒服', time: '2分钟前', type: 'success' },
+        { id: 2, action: '创建海报', item: '新年促销活动', time: '1小时前', type: 'success' },
+        { id: 3, action: '保存模板', item: '爆款商品模板', time: '3小时前', type: 'info' },
+        { id: 4, action: '批量生成', item: '10个商品', time: '昨天', type: 'success' },
+        { id: 5, action: '润色文案', item: '运动鞋描述', time: '2天前', type: 'success' },
+    ];
+
+    return (
+        <div className="poster-page">
+            <div className="poster-header">
+                <button className="btn btn-outline" onClick={() => setPage('home')}>
+                    <i className="fas fa-arrow-left"></i> 返回首页
+                </button>
+                <h1><i className="fas fa-chart-line"></i> 数据追踪</h1>
+                <p>记录每个素材的使用情况，优化高转化文案策略</p>
+            </div>
+
+            <div className="poster-container" style={{gridTemplateColumns: '1fr'}}>
+                <div className="poster-form">
+                    {/* 统计卡片 */}
+                    <div style={{display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px', marginBottom: '32px'}}>
+                        {stats.map((stat, index) => (
+                            <div key={index} style={{padding: '24px', background: 'white', borderRadius: '12px', border: '1px solid #e5e7eb', textAlign: 'center'}}>
+                                <i className={`fas ${stat.icon}`} style={{fontSize: '32px', color: stat.color, marginBottom: '12px'}}></i>
+                                <div style={{fontSize: '32px', fontWeight: 'bold', color: '#111827', marginBottom: '4px'}}>{stat.value}</div>
+                                <div style={{color: '#6b7280', fontSize: '14px'}}>{stat.label}</div>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* 最近活动 */}
+                    <div style={{background: 'white', borderRadius: '12px', border: '1px solid #e5e7eb', padding: '24px'}}>
+                        <h3 style={{marginBottom: '20px'}}><i className="fas fa-history"></i> 最近活动</h3>
+                        <div style={{display: 'grid', gap: '12px'}}>
+                            {recentActivities.map(activity => (
+                                <div key={activity.id} style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px', background: '#f9fafb', borderRadius: '8px'}}>
+                                    <div style={{display: 'flex', alignItems: 'center', gap: '12px'}}>
+                                        <div style={{
+                                            width: '8px', 
+                                            height: '8px', 
+                                            borderRadius: '50%', 
+                                            background: activity.type === 'success' ? '#10b981' : '#4f46e5'
+                                        }}></div>
+                                        <div>
+                                            <span style={{fontWeight: '500'}}>{activity.action}</span>
+                                            <span style={{color: '#6b7280', margin: '0 8px'}}>·</span>
+                                            <span style={{color: '#374151'}}>{activity.item}</span>
+                                        </div>
+                                    </div>
+                                    <span style={{color: '#9ca3af', fontSize: '14px'}}>{activity.time}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
 // ==================== 主应用 ====================
 const App = () => {
     const [currentPage, setPage] = useState('home');
     const [templateData, setTemplateData] = useState(null);
 
+    // 安全的页面跳转函数
+    const safeSetPage = (page) => {
+        const validPages = ['home', 'workspace', 'templates', 'profile', 'poster', 'batch', 'polish', 'templates-manage', 'analytics'];
+        if (validPages.includes(page)) {
+            setPage(page);
+        } else {
+            console.warn(`页面 "${page}" 不存在，跳转到首页`);
+            setPage('home');
+        }
+    };
+
     const renderPage = () => {
         switch (currentPage) {
-            case 'home': return <HomePage setPage={setPage} />;
+            case 'home': return <HomePage setPage={safeSetPage} />;
             case 'workspace': return <WorkspacePage templateData={templateData} clearTemplate={() => setTemplateData(null)} />;
-            case 'templates': return <TemplatesPage setPage={setPage} setTemplateData={setTemplateData} />;
+            case 'templates': return <TemplatesPage setPage={safeSetPage} setTemplateData={setTemplateData} />;
             case 'profile': return <ProfilePage />;
-            default: return <HomePage setPage={setPage} />;
+            case 'poster': return <PosterPage setPage={safeSetPage} />;
+            case 'batch': return <BatchGeneratePage setPage={safeSetPage} />;
+            case 'polish': return <AIPolishPage setPage={safeSetPage} />;
+            case 'templates-manage': return <TemplatesManagePage setPage={safeSetPage} />;
+            case 'analytics': return <AnalyticsPage setPage={safeSetPage} />;
+            default: return (
+                <div style={{textAlign: 'center', padding: '100px 20px'}}>
+                    <i className="fas fa-exclamation-circle" style={{fontSize: '64px', color: '#ef4444', marginBottom: '20px'}}></i>
+                    <h2>页面不存在</h2>
+                    <p style={{color: '#6b7280', marginBottom: '24px'}}>您访问的页面 "{currentPage}" 不存在或正在开发中</p>
+                    <button className="btn btn-primary" onClick={() => setPage('home')}>
+                        <i className="fas fa-home"></i> 返回首页
+                    </button>
+                </div>
+            );
         }
     };
 

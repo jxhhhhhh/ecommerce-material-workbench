@@ -1,5 +1,17 @@
 {
   "version": 2,
   "name": "ecommerce-material-workbench",
-  "public": true
+  "public": true,
+  "builds": [
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
 }

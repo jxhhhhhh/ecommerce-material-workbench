@@ -7,7 +7,7 @@
     <script src="https://cdn.bootcdn.net/ajax/libs/react/18.2.0/umd/react.development.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/react-dom/18.2.0/umd/react-dom.development.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/7.22.20/babel.min.js"></script>
-    <script src="https://cdn.bootcdn.net/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://unpkg.com/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
     <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -933,6 +933,409 @@
             font-size: 14px;
         }
 
+        /* 模态框样式 */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            width: 100%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            padding: 24px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .modal-header h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1f2937;
+            margin: 0;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #6b7280;
+            padding: 4px;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .modal-close:hover {
+            background: #f3f4f6;
+            color: #1f2937;
+        }
+
+        .modal-body {
+            padding: 24px;
+        }
+
+        .form-textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.5;
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        .form-textarea:focus {
+            outline: none;
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .error-message {
+            background: #fee2e2;
+            color: #dc2626;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 16px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+
+        /* 加载动画 */
+        .loading-spinner {
+            width: 16px;
+            height: 16px;
+            border: 2px solid #f3f4f6;
+            border-top: 2px solid #4f46e5;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* 抖音文案样式 */
+        .tiktok-copies {
+            margin-top: 20px;
+        }
+
+        .tiktok-copies h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #1f2937;
+        }
+
+        .tiktok-copy-item {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .copy-index {
+            position: absolute;
+            top: -8px;
+            left: 16px;
+            background: #4f46e5;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .copy-content {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #374151;
+            margin-bottom: 12px;
+            padding-left: 8px;
+        }
+
+        .copy-btn {
+            background: #f3f4f6;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-size: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: #e5e7eb;
+        }
+
+        .copy-btn.copied {
+            background: #d1fae5;
+            border-color: #10b981;
+            color: #059669;
+        }
+
+        /* AI海报生成页面样式 */
+        .poster-page {
+            padding: 40px 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .poster-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .poster-header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1f2937;
+            margin: 16px 0 8px;
+        }
+
+        .poster-header h1 i {
+            color: #4f46e5;
+            margin-right: 12px;
+        }
+
+        .poster-header p {
+            color: #6b7280;
+            font-size: 16px;
+        }
+
+        .poster-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+        }
+
+        .poster-form {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .style-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .style-option {
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .style-option:hover {
+            border-color: #4f46e5;
+            background: #f5f3ff;
+        }
+
+        .style-option.active {
+            border-color: #4f46e5;
+            background: #eef2ff;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .style-option i {
+            font-size: 28px;
+            color: #4f46e5;
+            margin-bottom: 8px;
+        }
+
+        .style-label {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 4px;
+        }
+
+        .style-desc {
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        .btn-generate {
+            width: 100%;
+            padding: 16px;
+            font-size: 16px;
+            margin-top: 8px;
+        }
+
+        .poster-preview {
+            background: #f9fafb;
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .preview-title {
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .preview-title i {
+            color: #4f46e5;
+        }
+
+        .empty-preview {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #9ca3af;
+            min-height: 400px;
+        }
+
+        .empty-preview i {
+            font-size: 64px;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+
+        .empty-preview p {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .empty-preview span {
+            font-size: 14px;
+        }
+
+        .generating-state {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+
+        .loading-spinner.large {
+            width: 48px;
+            height: 48px;
+            border-width: 4px;
+            margin-bottom: 20px;
+        }
+
+        .generating-state p {
+            font-size: 18px;
+            color: #374151;
+            margin-bottom: 8px;
+        }
+
+        .generating-hint {
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        .generated-result {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .poster-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .poster-image-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f3f4f6;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            min-height: 300px;
+        }
+
+        .poster-image {
+            max-width: 100%;
+            max-height: 500px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .design-plan {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #e5e7eb;
+            width: 100%;
+        }
+
+        .design-plan h4 {
+            color: #4f46e5;
+            margin-bottom: 12px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .design-content {
+            white-space: pre-wrap;
+            font-family: inherit;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #374151;
+            max-height: 300px;
+            overflow-y: auto;
+            background: #f9fafb;
+            padding: 16px;
+            border-radius: 6px;
+            margin: 0;
+        }
+
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 36px;
@@ -950,6 +1353,28 @@
 
             .profile-content {
                 grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                margin: 20px;
+                max-height: 90vh;
+            }
+
+            .poster-container {
+                grid-template-columns: 1fr;
+                padding: 24px;
+            }
+
+            .style-options {
+                grid-template-columns: 1fr;
+            }
+
+            .poster-header h1 {
+                font-size: 24px;
+            }
+
+            .design-content {
+                max-height: 200px;
             }
         }
     </style>
