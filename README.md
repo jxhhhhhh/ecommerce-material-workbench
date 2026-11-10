@@ -51,8 +51,8 @@ app.jsx                    主程序：所有页面组件与业务逻辑（约 4
 history.js                 历史记录的读写模块
 mockData.js                演示用模拟数据
 babel.min.js               Babel Standalone（浏览器内编译 JSX）
-react.development.js       React 18
-react-dom.development.js   React DOM 18
+react.production.min.js      React 18（生产构建，约 11 KB）
+react-dom.production.min.js  React DOM 18（生产构建，约 129 KB）
 xlsx.full.min.js           SheetJS，Excel / CSV 解析
 ```
 
