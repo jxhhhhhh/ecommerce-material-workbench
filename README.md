@@ -54,8 +54,6 @@ babel.min.js               Babel Standalone（浏览器内编译 JSX）
 react.development.js       React 18
 react-dom.development.js   React DOM 18
 xlsx.full.min.js           SheetJS，Excel / CSV 解析
-app-new.jsx                早期重构尝试，未接入主流程
-dataStore.js               早期数据层设计，未接入主流程
 ```
 
 ## 关于 API Key
@@ -73,8 +71,7 @@ API Key 不写入代码、不提交到仓库。程序按以下顺序取：
 - 纯前端演示项目：没有用户系统与服务端，多设备之间数据不互通。
 - 首页的「数据追踪」统计是演示数据（写死的示例数字），不是真实统计；真实可用的是历史记录页。
 - 浏览器内 Babel 编译换来「零构建、双击即用」，代价是首屏多一次编译耗时；若要投产，建议改为离线预编译。
-- `app-new.jsx` 与 `dataStore.js` 是历史遗留文件，未接入主流程，后续会清理。
 
 ## License
 
-MIT
+本项目基于 [MIT License](LICENSE) 开源。
