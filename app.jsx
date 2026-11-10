@@ -1,5 +1,9 @@
 const { useState, useRef, useEffect } = React;
 
+// ==================== API Key 读取 ====================
+// 密钥不要写进源码，请在 config.js 中设置 window.__APP_CONFIG__.DEEPSEEK_KEY
+const getApiKey = () => (window.__APP_CONFIG__ && window.__APP_CONFIG__.DEEPSEEK_KEY) || '';
+
 // 清除旧版本LocalStorage中的外部图片URL（兼容旧数据）
 const cleanOldImageUrls = () => {
     try {
@@ -1180,7 +1184,7 @@ const CopyScorePanel = ({ copy, productInfo }) => {
     const analyzeCopy = async () => {
         setLoading(true);
         try {
-            const apiKey = 'sk-d363904b9cfa4a2b932a8d1821c68722';
+            const apiKey = getApiKey();
             const response = await fetch('https://api.deepseek.com/v1/chat/completions', {
                 method: 'POST',
                 headers: {
@@ -1311,7 +1315,7 @@ const PlatformAdapter = ({ copy, productInfo }) => {
         
         setLoading(true);
         try {
-            const apiKey = 'sk-d363904b9cfa4a2b932a8d1821c68722';
+            const apiKey = getApiKey();
             const platformNames = { douyin: '抖音', xiaohongshu: '小红书', taobao: '淘宝' };
             
             const response = await fetch('https://api.deepseek.com/v1/chat/completions', {
@@ -1438,7 +1442,7 @@ const ABTestPanel = ({ copy, productInfo }) => {
     const generateVariants = async () => {
         setLoading(true);
         try {
-            const apiKey = 'sk-d363904b9cfa4a2b932a8d1821c68722';
+            const apiKey = getApiKey();
             const response = await fetch('https://api.deepseek.com/v1/chat/completions', {
                 method: 'POST',
                 headers: {
@@ -1580,7 +1584,7 @@ const PreviewPanel = ({ result, emptyText }) => {
 
         try {
             // DeepSeek API 调用 - 使用用户提供的API Key
-            const apiKey = 'sk-d363904b9cfa4a2b932a8d1821c68722'; // 用户的API Key
+            const apiKey = getApiKey(); // 用户的API Key
             const response = await fetch('https://api.deepseek.com/v1/chat/completions', {
                 method: 'POST',
                 headers: {
@@ -2598,7 +2602,7 @@ const AIPolishPage = ({ setPage, addToHistory, refreshHistory, showToast, setIsL
 
         try {
             // 调用 DeepSeek API 进行润色
-            const apiKey = 'sk-d363904b9cfa4a2b932a8d1821c68722';
+            const apiKey = getApiKey();
             const stylePrompts = {
                 attractive: '让这段文案更吸引人、更有营销感，提高转化率',
                 professional: '让这段文案更专业、更有权威性，增强信任感',
@@ -2989,7 +2993,7 @@ const PosterPage = ({ setPage, addToHistory, refreshHistory, showToast, setIsLoa
 }`;
 
             // 调用 DeepSeek API 生成海报文案
-            const apiKey = 'sk-d363904b9cfa4a2b932a8d1821c68722';
+            const apiKey = getApiKey();
             let designData = {
                 title: '限时特惠',
                 mainText: '品质好物，限时低价，错过再等一年！',
