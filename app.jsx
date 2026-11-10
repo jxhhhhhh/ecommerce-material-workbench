@@ -1,8 +1,22 @@
 const { useState, useRef, useEffect } = React;
 
 // ==================== API Key 读取 ====================
-// 密钥不要写进源码，请在 config.js 中设置 window.__APP_CONFIG__.DEEPSEEK_KEY
-const getApiKey = () => (window.__APP_CONFIG__ && window.__APP_CONFIG__.DEEPSEEK_KEY) || '';
+// 密钥不入库：优先读 config.js（若存在），其次读浏览器本地存储，首次使用弹窗输入
+let __keyAsked = false;
+const getApiKey = () => {
+    const cfg = (window.__APP_CONFIG__ && window.__APP_CONFIG__.DEEPSEEK_KEY) || '';
+    if (cfg) return cfg;
+    let key = localStorage.getItem('deepseek_api_key') || '';
+    if (!key && !__keyAsked) {
+        __keyAsked = true;
+        const input = window.prompt('首次使用需要填写 DeepSeek API Key（只保存在本机浏览器，不会上传）');
+        if (input) {
+            key = input.trim();
+            localStorage.setItem('deepseek_api_key', key);
+        }
+    }
+    return key;
+};
 
 // 清除旧版本LocalStorage中的外部图片URL（兼容旧数据）
 const cleanOldImageUrls = () => {
